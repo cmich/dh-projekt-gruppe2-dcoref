@@ -61,7 +61,8 @@ public class CorefAdder {
 			CommandLine commandLine = parserCLI.parse( options, args);
 			boolean doPostproc = false;
 			/*	accept defined options only, show help text instead; 
-			 *	folder is required, corenlp is optional
+			 *	folder is required, corenlp is optional but required 
+			 *	in order for pp to take effect
 			 */	
             if ( commandLine.hasOption("folder") ) {
             	File dataFolder = new File(commandLine.getOptionValue("folder"));
@@ -86,6 +87,7 @@ public class CorefAdder {
                 long start = System.nanoTime();
                 System.out.print("Creating index for " + dataFolder.getName() + " ... ");
                 
+				//	handle post-processing option
     			String postproc = "";
     			if (doPostproc) {
     				postproc = System.getProperty("file.separator") + "post-processing";
@@ -93,13 +95,10 @@ public class CorefAdder {
                 
                 //	prepare index-adder input
                 File extractedChapterFilesFolder = new File(dataFolder.getAbsolutePath() 
-                		+ System.getProperty("file.separator") 
-                		+ "output" + System.getProperty("file.separator") 
-                		+ "chapters" + System.getProperty("file.separator") 
-                		+ "extracted"
+                		+ System.getProperty("file.separator") + "output"
+                		+ System.getProperty("file.separator") + "chapters" 
+                		+ System.getProperty("file.separator") + "extracted"                		
                 		+ postproc);
-                
-                System.out.println(extractedChapterFilesFolder.getAbsolutePath());
                 
                 File[] listOfChapterFiles = extractedChapterFilesFolder.listFiles(new FileFilter() {
                     @Override
@@ -121,6 +120,8 @@ public class CorefAdder {
                 
                 //	add path for output file
                 indexAdderInput[indexAdderInput.length - 2] = "-o";
+				
+				//	handle post-processing option
     			String indexFilename = "index.xml";
     			if (doPostproc) {
     				indexFilename = "index_pp.xml";
@@ -152,12 +153,14 @@ public class CorefAdder {
 		try {
 			long start = System.nanoTime();
 			System.out.print("Running Stanford CoreNLP for "+ dataFolder.getName() + " ... ");
-			
-			String postproc = "";
-			
+		
 			//	configure properties for pipeline of the Stanford CoreNLP
 			Properties properties = new Properties();
 			properties.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
+			
+			//	handle post-processing option
+			String postproc = "";
+			
 			if (doPostproc) {
 				properties.setProperty("dcoref.postprocessing", "true");
 				postproc = System.getProperty("file.separator") + "post-processing";
@@ -229,6 +232,7 @@ public class CorefAdder {
 	    	long start = System.nanoTime();	    	
 	    	System.out.println("Adapting XML-files for " + dataFolder.getName() + " ... ");
 	    	
+			//	handle post-processing option
 			String postproc = "";
 			if (doPostproc) {
 				postproc = System.getProperty("file.separator") + "post-processing";
@@ -326,9 +330,8 @@ public class CorefAdder {
 											+ System.getProperty("file.separator") + "chapters" 
     										+ System.getProperty("file.separator") + "extracted"
     										+ postproc
-											+ System.getProperty("file.separator") + dataFolder.getName() + "_chapter" 
-    										+ chapterID 
-    										+ ".xml"), "utf-8"));
+											+ System.getProperty("file.separator") + dataFolder.getName() 
+											+ "_chapter" + chapterID + ".xml"), "utf-8"));
     	 
     			transformer.transform(source, result);
     			
