@@ -106,7 +106,7 @@ C:\project\folder>
 
 ### Ausgabe
 
-Die Ausgabedateien befinden sich in den folgenden Unterordnern der bestehenden Ordnerstruktur, z.B. für "UncleTomsCabin":
+Die Ausgabedateien befinden sich in den folgenden Unterordnern der bestehenden Ordnerstruktur, z.B. für "[UncleTomsCabin](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin)":
 
 #### Annotierte Kapitel, unformatiert
 
