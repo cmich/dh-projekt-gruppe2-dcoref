@@ -19,35 +19,82 @@ Außerdem sollte sich neben dem Ordner "[coref-adder_lib](https://github.com/cmi
 
 ### Ausführung
 
-Für die Ausführung
+Für die Ausführung wird hier zunächst die Benutzerinformation demonstriert. Man hat zwei Möglichkeiten, die JAR-Datei "coref-adder.jar" diese Informationen anzeigen zu lassen (Windows Kommandozeile):
 
-dfsafsdf
-
-
-Dieses Programm wurde nur aus Eclipse heraus gestartet, da es nur für einen sehr begrenzten Zweck gedacht war. Im Moment ist im Quellcode die Eingabedatei auf "chapter1_adapted_withpost.xml" und die Ausgabedatei auf "chapter1_adapted_withpost_xml.coref" festgelegt.
-
-Wenn die Eingabedatei (z.B. "chapter1_adapted_withpost.xml") im gleichen Ordner wie "ProgramStanToRec.java" liegt, kann man wie folgt vorgehen (Windows Kommandozeile):
-
-1. mit dem Befehl *cd* in den entsprechenden Ordner wechseln
-2. Code kompilieren mit *javac ProgramStanToRec.java*
-  - Die Datei "ProgramStanToRec.class" wird in demselben Ordner erstellt
-3. Code ausführen mit *java ProgramStanToRec*
-  - Die Datei "chapter1_adapted_withpost_xml.coref" wird in demselben Ordner erstellt
+1. mit dem Befehl *cd* in den Ordner mit der JAR-Datei "coref-adder.jar" wechseln
+2. eine der folgenden Befehle eingeben:
+  - *java -jar coref-adder.jar*
+  - *java -jar coref-adder.jar -help*
 
 Die Ausgabe in der Windows-Kommandozeile sollte dann so aussehen:
 ```
-C:\project\folder>javac ProgramStanToRec.java
-C:\project\folder>java ProgramStanToRec
-SentenceCount:          112
-MaxTokenCount:          84
+C:\project\folder>java -jar coref-adder.jar -help
+usage: arguments for coref-adder.jar
+ -corenlp               run Stanford CoreNLP first (optional)
+ -folder <src-folder>   use given folder as source (required)
+ -help                  print this message
+ -pp                    include post-processing for DCoref in the CoreNLP
+                        pipeline, ignored if -corenlp is not chosen
+                        (optional)
+C:\project\folder>
+```
 
-CoreferenceCount:       74
-CoreferencesHandled:    74
+Um lediglich die von Gruppe 1 bereits gelieferten Daten z.B. für den Ordner "UncleTomsCabin" umzuformatieren, kann man die folgenden Schritte ausführen (Windows Kommandozeile):
 
-MentionCount:           390
-MentionsHandled:        390
+1. mit dem Befehl *cd* in den Ordner mit der JAR-Datei "coref-adder.jar" wechseln
+2. Die Umformatierung starten mit: *java -jar coref-adder.jar -folder UncleTomsCabin*
 
-MentionSizes:           [1, 2, 3, 4, 5, 7, 8, 14, 17, 20, 39]
+Die Ausgabe in der Windows-Kommandozeile sollte dann so aussehen:
+```
+C:\project\folder>java -jar coref-adder.jar  -folder UncleTomsCabin
+Adapting XML-files for UncleTomsCabin ...
+... processing chapter1.xml ... saving ... Done! [0.876 sec]
+... processing chapter2.xml ... saving ... Done! [0.15 sec]
+... processing chapter3.xml ... saving ... Done! [0.157 sec]
+... processing chapter4.xml ... saving ... Done! [0.478 sec]
+... processing chapter5.xml ... saving ... Done! [0.22 sec]
+... processing chapter6.xml ... saving ... Done! [0.206 sec]
+... processing chapter7.xml ... saving ... Done! [0.295 sec]
+... processing chapter8.xml ... saving ... Done! [0.401 sec]
+... processing chapter9.xml ... saving ... Done! [0.416 sec]
+... processing chapter10.xml ... saving ... Done! [0.282 sec]
+... processing chapter11.xml ... saving ... Done! [0.611 sec]
+... processing chapter12.xml ... saving ... Done! [0.404 sec]
+... processing chapter13.xml ... saving ... Done! [0.151 sec]
+... processing chapter14.xml ... saving ... Done! [0.204 sec]
+... processing chapter15.xml ... saving ... Done! [0.338 sec]
+... processing chapter16.xml ... saving ... Done! [0.438 sec]
+... processing chapter17.xml ... saving ... Done! [0.418 sec]
+... processing chapter18.xml ... saving ... Done! [0.366 sec]
+... processing chapter19.xml ... saving ... Done! [0.471 sec]
+... processing chapter20.xml ... saving ... Done! [0.316 sec]
+... processing chapter21.xml ... saving ... Done! [0.081 sec]
+... processing chapter22.xml ... saving ... Done! [0.11 sec]
+... processing chapter23.xml ... saving ... Done! [0.153 sec]
+... processing chapter24.xml ... saving ... Done! [0.111 sec]
+... processing chapter25.xml ... saving ... Done! [0.081 sec]
+... processing chapter26.xml ... saving ... Done! [0.284 sec]
+... processing chapter27.xml ... saving ... Done! [0.127 sec]
+... processing chapter28.xml ... saving ... Done! [0.305 sec]
+... processing chapter29.xml ... saving ... Done! [0.124 sec]
+... processing chapter30.xml ... saving ... Done! [0.2 sec]
+... processing chapter31.xml ... saving ... Done! [0.099 sec]
+... processing chapter32.xml ... saving ... Done! [0.138 sec]
+... processing chapter33.xml ... saving ... Done! [0.152 sec]
+... processing chapter34.xml ... saving ... Done! [0.215 sec]
+... processing chapter35.xml ... saving ... Done! [0.101 sec]
+... processing chapter36.xml ... saving ... Done! [0.13 sec]
+... processing chapter37.xml ... saving ... Done! [0.104 sec]
+... processing chapter38.xml ... saving ... Done! [0.173 sec]
+... processing chapter39.xml ... saving ... Done! [0.184 sec]
+... processing chapter40.xml ... saving ... Done! [0.116 sec]
+... processing chapter41.xml ... saving ... Done! [0.104 sec]
+... processing chapter42.xml ... saving ... Done! [0.112 sec]
+... processing chapter43.xml ... saving ... Done! [0.133 sec]
+... processing chapter44.xml ... saving ... Done! [0.06 sec]
+... processing chapter45.xml ... saving ... Done! [0.171 sec]
+Complete! [10.858 sec]
+Creating index for UncleTomsCabin ... Complete! [3.048 sec]
 
 C:\project\folder>
 ```
