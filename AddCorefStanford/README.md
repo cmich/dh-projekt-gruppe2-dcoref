@@ -59,7 +59,7 @@ Creating index for UncleTomsCabin ... Complete! [3.048 sec]
 C:\project\folder>
 ```
 
-Will man zusätzlich vor der Umformatierung auf die Reintext-Dateien der Kapitel anwenden, nutzt man die Option -corenlp, entweder mit oder ohne Post-Processing-Option -pp. Also (Windows Kommandozeile):
+Will man zusätzlich vor der Umformatierung [DCoref](http://nlp.stanford.edu/software/dcoref.shtml) auf die Reintext-Dateien der Kapitel anwenden, nutzt man die Option -corenlp, entweder mit oder ohne Post-Processing-Option -pp. Also (Windows Kommandozeile):
 
 1. mit dem Befehl *cd* in den Ordner mit der JAR-Datei "coref-adder.jar" wechseln
 2. Die Verarbeitung starten mit: 
@@ -104,4 +104,27 @@ Creating index for UncleTomsCabin ... Complete! [4.011 sec]
 C:\project\folder>
 ```
 
-Um lediglich die von Gruppe 1 bereits gelieferten Daten z.B. für den Ordner "UncleTomsCabin" umzuformatieren, kann man die folgenden Schritte ausführen (Windows Kommandozeile):
+### Ausgabe
+
+Die Ausgabedateien befinden sich in den folgenden Unterordnern der bestehenden Ordnerstruktur, z.B. für "UncleTomsCabin":
+
+#### Annotierte Kapitel, unformatiert
+
+Die unformatierten Dateien, die [DCoref](http://nlp.stanford.edu/software/dcoref.shtml) ausgibt, werden in dem Unterordner "[output/chapters](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin/output/chapters)" wie folgt angelegt:
+
+- z.B. "[output/chapters/annotated/chapter1.xml](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin/output/chapters/annotated/post-processing)" beim Aufruf ohne Postprocessing
+- z.B. "[output/chapters/annotated/post-processing/chapter1.xml](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin/output/chapters/annotated/post-processing)" beim Aufruf mit Postprocessing
+
+#### Annotierte Kapitel, für Gruppe 3 formatiert
+
+Die für Gruppe 3 formatierten Dateien der durch [DCoref](http://nlp.stanford.edu/software/dcoref.shtml) annotierten Kapitel werden in dem Unterordner "[output/chapters](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin/output/chapters)" wie folgt angelegt:
+
+- z.B. "[output/chapters/extracted/UncleTomsCabin_chapter1.xml](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin/output/chapters/extracted)" beim Aufruf ohne Postprocessing
+- z.B. "[output/chapters/extracted/post-processing/UncleTomsCabin_chapter1.xml](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin/output/chapters/extracted/post-processing)" beim Aufruf mit Postprocessing
+
+#### Index
+
+Der Index wird in dem Unterordner "[output](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin/output)" wie folgt angelegt:
+ 
+- "[output/index_pp.xml](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin/output)" beim Aufruf ohne Postprocessing
+- "[output/index_pp.xml](https://github.com/Rostu/dh-Projekt-Gruppe1/tree/master/UncleTomsCabin/output)" beim Aufruf mit Postprocessing
