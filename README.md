@@ -7,7 +7,7 @@ Dieses Repository enthält zwei Eclipse-Projektordner, die im Rahmen der Projekt
 
 - Stanford CoreNLP, insbesondere die JAR-Datei "stanford-corenlp-3.5.0-models.jar" ([Download](http://nlp.stanford.edu/software/stanford-corenlp-full-2015-01-29.zip))
 
-## StanfordCorefAdder
+## AddCorefStanford
 
 Das Projekt *AddCorefStanford* stellt die Variante der Lösung der Aufgabe von Gruppe 2 dar, die das Modul [DCoref](http://nlp.stanford.edu/software/dcoref.shtml) der [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml) verwendet. Weitere Informationen stehen [hier](https://github.com/cmich/dh-projekt-gruppe2-dcoref/blob/master/AddCorefStanford/README.md) zur Verfügung.
 
