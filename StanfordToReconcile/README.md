@@ -1,5 +1,5 @@
 # dh-projekt-gruppe2-dcoref/StanfordToReconcile
-Dieses Eclipse-Projekt ist nur zu dem Zweck enstanden, die DCoref-Ausgabe für den vereinbarten Textabschnitt   (1. Hälfte des 1. Kapitels im Buch "Uncle Tom's Cabin") in das Reconcile-Ausgabeformat umzuformen.
+Dieses Eclipse-Projekt ist nur zu dem Zweck enstanden, die DCoref-Ausgabe für den vereinbarten Textabschnitt (1. Hälfte des 1. Kapitels im Buch "Uncle Tom's Cabin") in das Reconcile-Ausgabeformat umzuformen.
 
 ## Voraussetzungen
 Java Runtime Environment, Version 1.8 ([Download](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html]adasd))
