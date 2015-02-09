@@ -2,7 +2,7 @@
 
 Das Projekt *AddCorefStanford* stellt die Variante der Lösung der Aufgabe von Gruppe 2 dar, die das Modul [DCoref](http://nlp.stanford.edu/software/dcoref.shtml) der [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml) verwendet. Die grundlegende Aufgabe ist das *Hinzufügen von Koreferenzinformationen* zu den von Gruppe 1 vorbereiteten Daten. Dazu wird zunächst DCoref verwendet. Die erhaltene Ausgabe pro Kapitel wird in das mit Gruppe 3 vereinbarte Format umgeformt und zusätzlich wird ein Index erstellt, der die Koreferenzketten pro Kapitel verbindet, die zusammengehören. Die dabei verwendete Ordnerstruktur ist in diesem [Repository](https://github.com/Rostu/dh-Projekt-Gruppe1) von Gruppe 1 einsehbar.
 
-Nach Absprache fügt Gruppe 1 die Koreferenzinformationen bereits hinzu, da sie die [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml) ebenfalls verwendet und bereits für jedes Buch laufen lässt. Trotzdem besitzt die ausführbare JAR-Datei "coref-adder.jar" im Ordner "[executable](https://github.com/cmich/dh-projekt-gruppe2-dcoref/tree/master/AddCorefStanford/executable)" eine Option (-corenlp, siehe [Anleitung](#anleitung)), die das Modul [DCoref](http://nlp.stanford.edu/software/dcoref.shtml) hinzuschaltet. Verwendet man diese Option, kann man ebenfalls einen Parameter (-pp, siehe [Anleitung](#anleitung)) an dieselbe ausführbare Datei übergeben, der Postprocessing (s. [Beschreibung](http://nlp.stanford.edu/pubs/conllst2011-coref.pdf) der Autoren) aktiviert, da dieser Schritt im Modul [DCoref](http://nlp.stanford.edu/software/dcoref.shtml) standardmäßig deaktiviert ist.
+Nach Absprache fügt Gruppe 1 die Koreferenzinformationen bereits hinzu, da sie die [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml) ebenfalls verwendet und bereits für jedes Buch laufen lässt. Trotzdem besitzt die ausführbare JAR-Datei "coref-adder.jar" im Ordner "[executable](https://github.com/cmich/dh-projekt-gruppe2-dcoref/tree/master/AddCorefStanford/executable)" eine Option (-corenlp, siehe [Anleitung](#anleitung)), die das Modul [DCoref](http://nlp.stanford.edu/software/dcoref.shtml) hinzuschaltet. Verwendet man diese Option, kann man ebenfalls einen Parameter (-pp, siehe [Anleitung](#anleitung)) an dieselbe ausführbare Datei übergeben, der Post-Processing (s. [Beschreibung](http://nlp.stanford.edu/pubs/conllst2011-coref.pdf) der Autoren) aktiviert, da dieser Schritt im Modul [DCoref](http://nlp.stanford.edu/software/dcoref.shtml) standardmäßig deaktiviert ist.
 
 ## Voraussetzungen
 - Java Runtime Environment, Version 1.8 ([Download](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html]adasd))
@@ -27,6 +27,7 @@ Für die Ausführung wird hier zunächst die Benutzerinformation demonstriert. M
   - *java -jar coref-adder.jar -help*
 
 Die Ausgabe in der Windows-Kommandozeile sollte dann so aussehen:
+
 ```
 C:\project\folder>java -jar coref-adder.jar -help
 usage: arguments for coref-adder.jar
@@ -45,56 +46,62 @@ Um lediglich die von Gruppe 1 bereits gelieferten Daten z.B. für den Ordner "Un
 2. Die Umformatierung starten mit: *java -jar coref-adder.jar -folder UncleTomsCabin*
 
 Die Ausgabe in der Windows-Kommandozeile sollte dann so aussehen:
+
 ```
-C:\project\folder>java -jar coref-adder.jar  -folder UncleTomsCabin
+C:\project\folder>java -jar coref-adder.jar -folder UncleTomsCabin
 Adapting XML-files for UncleTomsCabin ...
 ... processing chapter1.xml ... saving ... Done! [0.876 sec]
-... processing chapter2.xml ... saving ... Done! [0.15 sec]
-... processing chapter3.xml ... saving ... Done! [0.157 sec]
-... processing chapter4.xml ... saving ... Done! [0.478 sec]
-... processing chapter5.xml ... saving ... Done! [0.22 sec]
-... processing chapter6.xml ... saving ... Done! [0.206 sec]
-... processing chapter7.xml ... saving ... Done! [0.295 sec]
-... processing chapter8.xml ... saving ... Done! [0.401 sec]
-... processing chapter9.xml ... saving ... Done! [0.416 sec]
-... processing chapter10.xml ... saving ... Done! [0.282 sec]
-... processing chapter11.xml ... saving ... Done! [0.611 sec]
-... processing chapter12.xml ... saving ... Done! [0.404 sec]
-... processing chapter13.xml ... saving ... Done! [0.151 sec]
-... processing chapter14.xml ... saving ... Done! [0.204 sec]
-... processing chapter15.xml ... saving ... Done! [0.338 sec]
-... processing chapter16.xml ... saving ... Done! [0.438 sec]
-... processing chapter17.xml ... saving ... Done! [0.418 sec]
-... processing chapter18.xml ... saving ... Done! [0.366 sec]
-... processing chapter19.xml ... saving ... Done! [0.471 sec]
-... processing chapter20.xml ... saving ... Done! [0.316 sec]
-... processing chapter21.xml ... saving ... Done! [0.081 sec]
-... processing chapter22.xml ... saving ... Done! [0.11 sec]
-... processing chapter23.xml ... saving ... Done! [0.153 sec]
-... processing chapter24.xml ... saving ... Done! [0.111 sec]
-... processing chapter25.xml ... saving ... Done! [0.081 sec]
-... processing chapter26.xml ... saving ... Done! [0.284 sec]
-... processing chapter27.xml ... saving ... Done! [0.127 sec]
-... processing chapter28.xml ... saving ... Done! [0.305 sec]
-... processing chapter29.xml ... saving ... Done! [0.124 sec]
-... processing chapter30.xml ... saving ... Done! [0.2 sec]
-... processing chapter31.xml ... saving ... Done! [0.099 sec]
-... processing chapter32.xml ... saving ... Done! [0.138 sec]
-... processing chapter33.xml ... saving ... Done! [0.152 sec]
-... processing chapter34.xml ... saving ... Done! [0.215 sec]
-... processing chapter35.xml ... saving ... Done! [0.101 sec]
-... processing chapter36.xml ... saving ... Done! [0.13 sec]
-... processing chapter37.xml ... saving ... Done! [0.104 sec]
-... processing chapter38.xml ... saving ... Done! [0.173 sec]
-... processing chapter39.xml ... saving ... Done! [0.184 sec]
-... processing chapter40.xml ... saving ... Done! [0.116 sec]
-... processing chapter41.xml ... saving ... Done! [0.104 sec]
-... processing chapter42.xml ... saving ... Done! [0.112 sec]
-... processing chapter43.xml ... saving ... Done! [0.133 sec]
-... processing chapter44.xml ... saving ... Done! [0.06 sec]
+... [verkürzt]
 ... processing chapter45.xml ... saving ... Done! [0.171 sec]
 Complete! [10.858 sec]
 Creating index for UncleTomsCabin ... Complete! [3.048 sec]
 
 C:\project\folder>
 ```
+
+Will man zusätzlich vor der Umformatierung auf die Reintext-Dateien der Kapitel anwenden, nutzt man die Option -corenlp, entweder mit oder ohne Post-Processing-Option -pp. Also (Windows Kommandozeile):
+
+1. mit dem Befehl *cd* in den Ordner mit der JAR-Datei "coref-adder.jar" wechseln
+2. Die Verarbeitung starten mit: 
+  - *java -jar coref-adder.jar -folder UncleTomsCabin -corenlp* (ohne Post-Processing)
+  - *java -jar coref-adder.jar -folder UncleTomsCabin -corenlp -pp* (mit Post-Processing)
+
+Die Ausgabe in der Windows-Kommandozeile _ohne Post-Processing_ sollte dann so aussehen:
+```
+C:\project\folder>java -jar coref-adder.jar -folder UncleTomsCabin -corenlp
+Running Stanford CoreNLP for UncleTomsCabin
+... configuring pipeline ... Done! [12.21 sec]
+... annotating "chapter1.txt" ... saving ... Done! [46.312 sec]
+... [verkürzt]
+... annotating "chapter45.txt" ... saving ... Done! [128.804 sec]
+Complete! [2893.073 sec]
+Adapting XML-files for UncleTomsCabin ...
+... processing chapter1.xml ... saving ... Done! [0.798 sec]
+... [verkürzt]
+... processing chapter45.xml ... saving ... Done! [0.201 sec]
+Complete! [11.017 sec]
+Creating index for UncleTomsCabin ... Complete! [3.127 sec]
+
+C:\project\folder>
+```
+
+Die Ausgabe in der Windows-Kommandozeile _mit Post-Processing_ sollte dann so aussehen:
+```
+C:\project\folder>java -jar coref-adder.jar -folder UncleTomsCabin -corenlp -pp
+Running Stanford CoreNLP for UncleTomsCabin ... with post-processing ...
+... configuring pipeline ... Done! [11.01 sec]
+... annotating "chapter1.txt" ... saving ... Done! [48.549 sec]
+... [verkürzt]
+... annotating "chapter45.txt" ... saving ... Done! [131.207 sec]
+Complete! [2893.073 sec]
+Adapting XML-files for UncleTomsCabin ...
+... processing chapter1.xml ... saving ... Done! [0.901 sec]
+... [verkürzt]
+... processing chapter45.xml ... saving ... Done! [0.169 sec]
+Complete! [12.003 sec]
+Creating index for UncleTomsCabin ... Complete! [4.011 sec]
+
+C:\project\folder>
+```
+
+Um lediglich die von Gruppe 1 bereits gelieferten Daten z.B. für den Ordner "UncleTomsCabin" umzuformatieren, kann man die folgenden Schritte ausführen (Windows Kommandozeile):
